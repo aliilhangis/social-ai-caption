@@ -10,35 +10,34 @@ const PORT = 3000;
 app.use(cors());
 app.use(bodyParser.json());
 
-// Gemini API anahtarını .env dosyasından al
 const API_KEY = process.env.GEMINI_API_KEY;
 
-// Başlık üretme endpoint'i
 app.post("/generate", async (req, res) => {
-    const { description } = req.body;
+    const { image } = req.body;
 
-    if (!description) {
-        return res.status(400).json({ error: "Açıklama boş olamaz." });
+    if (!image) {
+        return res.status(400).json({ error: "Görsel yüklenmedi." });
     }
 
     try {
-        const response = await fetch(`https://generativelanguage.googleapis.com/v1/models/gemini-pro:generateText?key=${API_KEY}`, {
+        const response = await fetch(`https://generativelanguage.googleapis.com/v1/models/gemini-pro-vision:generateText?key=${API_KEY}`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
             },
             body: JSON.stringify({
-                prompt: `Sosyal medya için havalı bir başlık öner: "${description}"`,
+                prompt: "Bu fotoğraf için sosyal medyada etkileyici bir başlık öner.",
+                image: { content: image.split(",")[1] }, // Base64 formatından temizleyerek gönderiyoruz
             }),
         });
 
         const data = await response.json();
-        const caption = data?.candidates?.[0]?.output || "Başlık oluşturulamadı.";
+        const caption = data?.candidates?.[0]?.output || "Başlık bulunamadı.";
 
         res.json({ caption });
     } catch (error) {
         console.error("Gemini API hatası:", error);
-        res.status(500).json({ error: "AI başlık oluştururken hata oluştu." });
+        res.status(500).json({ error: "Başlık oluşturulurken hata oluştu." });
     }
 });
 
