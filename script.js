@@ -14,7 +14,7 @@ document.getElementById("generateBtn").addEventListener("click", async function 
         const imageBase64 = reader.result;
 
         try {
-            const response = await fetch("http://localhost:3000/generate", {
+            const response = await fetch("social-ai-caption-d1dy-jj00fk3sx-aliilhangis-projects.vercel.app", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ image: imageBase64 }),
