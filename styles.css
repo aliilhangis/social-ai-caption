@@ -1,68 +1,29 @@
-/* Genel sayfa stilleri */
 body {
     font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+    text-align: center;
+    margin: 20px;
 }
 
-/* İçerik kutusu */
 .container {
-    background: white;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-    text-align: center;
     width: 90%;
     max-width: 500px;
+    margin: auto;
 }
 
-/* Başlık ve açıklama */
-h1 {
-    color: #333;
+canvas {
+    max-width: 100%;
+    border: 1px solid #ddd;
 }
 
-p {
-    color: #666;
-}
-
-/* Kullanıcıdan açıklama almak için metin alanı */
-textarea {
-    width: 100%;
-    height: 80px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    padding: 10px;
-    font-size: 16px;
-    resize: none;
+button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
     margin-top: 10px;
 }
 
-/* Buton */
-button {
-    margin-top: 15px;
-    padding: 10px 15px;
-    border: none;
-    background: #007bff;
-    color: white;
-    font-size: 16px;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background 0.3s;
-}
-
 button:hover {
-    background: #0056b3;
-}
-
-/* AI tarafından üretilen başlık */
-#generatedCaption {
-    margin-top: 15px;
-    font-weight: bold;
-    color: #333;
-    font-size: 18px;
+    background-color: #0056b3;
 }
