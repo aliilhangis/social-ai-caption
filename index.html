@@ -3,19 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Başlık Oluşturucu</title>
+    <title>Fotoğraf Başlık Üretici</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="container">
-        <h1>AI Destekli Başlık Oluşturucu</h1>
-        <p>Bir açıklama girin, yapay zeka sizin için en iyi sosyal medya başlığını oluştursun!</p>
+        <h2>Fotoğraf Yükle ve Başlık Üret</h2>
         
-        <textarea id="description" placeholder="Örneğin: Gün batımında sahilde keyif yapıyorum..."></textarea>
-        <button id="generateBtn">Başlık Oluştur</button>
-        
-        <h2>Oluşturulan Başlık:</h2>
-        <p id="generatedCaption">Henüz bir başlık oluşturulmadı.</p>
+        <input type="file" id="imageInput" accept="image/*">
+        <button id="generateBtn">Başlık Üret</button>
+
+        <div class="canvas-container">
+            <canvas id="imageCanvas"></canvas>
+        </div>
+
+        <p id="generatedCaption"></p>
     </div>
 
     <script src="script.js"></script>
